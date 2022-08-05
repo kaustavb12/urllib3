@@ -1,8 +1,10 @@
 from __future__ import absolute_import
 from collections import namedtuple
+import logging
 
 from ..exceptions import LocationParseError
 
+log = logging.getLogger(__name__)
 
 url_attrs = ['scheme', 'auth', 'host', 'port', 'path', 'query', 'fragment']
 
@@ -151,6 +153,23 @@ def parse_url(url):
     # Additionally, this implementations does silly things to be optimal
     # on CPython.
 
+    print("***********************")
+    print("***********************")
+    print("***********************")
+    print("***********************")
+    print(url)
+    print("***********************")
+    print("***********************")
+    print("***********************")
+    print("***********************")
+
+    log.info("**********************")
+    log.info("**********************")
+    log.info(url)
+    log.info("**********************")
+    log.info("**********************")
+
+
     if not url:
         # Empty
         return Url()
@@ -179,6 +198,23 @@ def parse_url(url):
     if '@' in url:
         # Last '@' denotes end of auth part
         auth, url = url.rsplit('@', 1)
+
+
+    print("#######################")
+    print("#######################")
+    print("#######################")
+    print("#######################")
+    print(url)
+    print("#######################")
+    print("#######################")
+    print("#######################")
+    print("#######################")
+
+    log.info("#######################")
+    log.info("#######################")
+    log.info(url)
+    log.info("#######################")
+    log.info("#######################")
 
     # IPv6
     if url and url[0] == '[':
